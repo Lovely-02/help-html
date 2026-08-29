@@ -1,0 +1,70 @@
+name: 🚀 发布 help-html npm 包
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧪 触发 release-please 发布检查
+        id: release
+        uses: googleapis/release-please-action@v5
+        with:
+          config-file: .release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - name: 📂 检出代码（temp）
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ steps.release.outputs.tag_name }}
+          path: temp
+          fetch-depth: 0
+
+      - name: 📦 配置 PNPM
+        if: ${{ steps.release.outputs.release_created }}
+        uses: pnpm/action-setup@v5
+        with:
+          version: 9.0.2
+          run_install: false
+
+      - name: ⚙️ 设置 Node.js 运行环境
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: 📦 安装依赖
+        if: ${{ steps.release.outputs.release_created }}
+        working-directory: temp
+        run: pnpm install --frozen-lockfile
+
+      - name: 🛠️ 构建项目
+        if: ${{ steps.release.outputs.release_created }}
+        working-directory: temp
+        run: pnpm run build
+
+      - name: 🔍 检查发布包内容
+        if: ${{ steps.release.outputs.release_created }}
+        working-directory: temp
+        run: npm pack --dry-run
+
+      - name: 📤 发布 npm 包
+        if: ${{ steps.release.outputs.release_created }}
+        working-directory: temp
+        run: npm publish --provenance --access public

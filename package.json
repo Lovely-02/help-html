@@ -1,0 +1,35 @@
+{
+	"name": "help-html",
+	"version": "0.0.1",
+	"description": "这是一个轻量的帮助菜单生成器，把整齐的 JSON 配置变成漂亮的 HTML 页面。🌸",
+	"type": "module",
+	"main": "lib/main.js",
+	"scripts": {
+		"lint": "biome check --write src",
+		"compile": "node -e \"fs.rmSync('lib',{recursive:true,force:true})\" && tsc",
+		"minify": "node mod/minify lib",
+		"build": "pnpm lint && pnpm compile && pnpm minify",
+		"main": "node lib/main"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.4",
+		"@types/node": "^24.10.1",
+		"oxc-minify": "^0.96.0",
+		"typescript": "^5.9.3"
+	},
+	"imports": {
+		"#*": "./lib/*/index.js",
+		"#*.js": "./lib/*.js",
+		"#root/*": "./*"
+	},
+	"files": [
+		"./package.json",
+		"./CHANGELOG.md",
+		"./README.md",
+		"./resources",
+		"./lib"
+	]
+}
