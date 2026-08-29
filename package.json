@@ -4,6 +4,14 @@
 	"description": "这是一个轻量的帮助菜单生成器，把整齐的 JSON 配置变成漂亮的 HTML 页面。🌸",
 	"type": "module",
 	"main": "lib/main.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Lovely-02/help-html.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Lovely-02/help-html/issues"
+	},
+	"homepage": "https://github.com/Lovely-02/help-html#readme",
 	"scripts": {
 		"lint": "biome check --write src",
 		"compile": "node -e \"fs.rmSync('lib',{recursive:true,force:true})\" && tsc",
