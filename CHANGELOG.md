@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/Lovely-02/help-html/compare/help-html-v0.0.3...help-html-v0.0.4) (2026-08-29)
+
+
+### 🐛 Bug 修复
+
+* 修改文件名 ([1e8ae1f](https://github.com/Lovely-02/help-html/commit/1e8ae1f9895c8ae1a457580f35949f64fc01ba7e))
+
 ## [0.0.3](https://github.com/Lovely-02/help-html/compare/help-html-v0.0.2...help-html-v0.0.3) (2026-08-29)
 
 
