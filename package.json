@@ -20,11 +20,6 @@
 		"oxc-minify": "^0.96.0",
 		"typescript": "^5.9.3"
 	},
-	"imports": {
-		"#*": "./lib/*/index.js",
-		"#*.js": "./lib/*.js",
-		"#root/*": "./*"
-	},
 	"files": [
 		"./package.json",
 		"./CHANGELOG.md",

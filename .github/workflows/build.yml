@@ -27,7 +27,7 @@ jobs:
           config-file: .release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      - name: 📂 检出代码（temp）
+      - name: 📂 检出代码
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v5
         with:
