@@ -96,12 +96,6 @@ await writeFile('./help.html', html, 'utf8')
 console.log('帮助页面已生成：help.html')
 ```
 
-运行：
-
-```bash
-node build-help.mjs
-```
-
 然后用浏览器或其他 HTML 工具打开 `help.html` 即可。页面会自动铺满可用空间，不固定宽高。📖
 
 ### 2. 自定义标题样式
