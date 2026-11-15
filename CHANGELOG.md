@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/Lovely-02/help-html/compare/help-html-v0.0.4...help-html-v0.0.5) (2026-11-15)
+
+
+### 🎨 代码风格/格式
+
+* refresh help template with warm orange card design ([2aae260](https://github.com/Lovely-02/help-html/commit/2aae260e46ae806f7cee162e668bca3d387c66b8))
+
 ## [0.0.4](https://github.com/Lovely-02/help-html/compare/help-html-v0.0.3...help-html-v0.0.4) (2026-08-29)
 
 
