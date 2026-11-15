@@ -157,51 +157,51 @@ type HelpItem = {
 | `font`        | `''`                                       | 全局字体文件，如 `./assets/main.ttf`       |
 | `menu`        | `''`                                       | `COMMAND MENU` 文案；为空时不显示          |
 | `mode`        | `auto`                                     | `auto`、`light` 或 `dark`                  |
-| `bgColor`     | `#edf2f7`                                  | 页面底色                                   |
-| `panelBorder` | `rgba(255, 255, 255, 0.72)`                | 面板边框颜色                               |
-| `accent`      | `#3b82f6`                                  | 强调色、装饰线和标记点颜色                 |
-| `muted`       | `#64748b`                                  | 辅助文字颜色                               |
-| `color`       | `#000000`                                  | 主文字颜色，默认黑色                       |
+| `bgColor`     | `#eee9e3`                                  | 页面底色                                   |
+| `panelBorder` | `rgba(69, 55, 44, 0.08)`                | 面板边框颜色                               |
+| `accent`      | `#edaa7d`                                  | 强调色、装饰线和标记点颜色                 |
+| `muted`       | `#72747a`                                  | 辅助文字颜色                               |
+| `color`       | `#30343b`                                  | 主文字颜色，默认深灰                       |
 | `size`        | `16px`                                     | 基础字号，也支持数字，如 `18`              |
 | `footer`      | `''`                                       | 页脚文字；为空时不显示                     |
 | `shadow`      | `none`                                     | 主文字阴影                                 |
-| `desc`        | `#64748b`                                  | 描述文字颜色                               |
-| `panel`       | `rgba(255, 255, 255, 0.88)`                | 面板底色                                   |
+| `desc`        | `#72747a`                                  | 描述文字颜色                               |
+| `panel`       | `rgba(249, 247, 243, 0.98)`                | 面板底色                                   |
 | `blur`        | `3`                                        | 面板毛玻璃模糊值，最终按 px 处理           |
-| `panelShadow` | `0 24px 56px -22px rgba(15, 23, 42, 0.18)` | 面板阴影                                   |
+| `panelShadow` | `0 20px 60px -24px rgba(48, 39, 32, 0.24)` | 面板阴影                                   |
 
 ### `theme` 布局与颜色
 
 | 参数           | 默认值                     | 说明                         |
 | -------------- | -------------------------- | ---------------------------- |
-| `headBg`       | `rgba(59, 130, 246, 0.08)` | 分组标题栏底色               |
-| `groupLine`    | `rgba(59, 130, 246, 0.2)`  | 小标题横杠颜色               |
-| `row1`         | `rgba(15, 23, 42, 0.045)`  | 奇数帮助行底色               |
-| `row2`         | `rgba(15, 23, 42, 0.075)`  | 偶数帮助行底色               |
-| `itemBorder`   | `rgba(15, 23, 42, 0.06)`   | 帮助行边框颜色               |
-| `pagePad`      | `48px 40px`                | 页面内边距                   |
-| `panelPad`     | `42px`                     | 面板内边距                   |
-| `panelRad`     | `28px`                     | 面板圆角                     |
-| `groupGap`     | `36px`                     | 分组之间的间距               |
+| `headBg`       | `#292d35` | 页面标题区底色               |
+| `groupLine`    | `rgba(185, 88, 44, 0.22)`  | 小标题横杠颜色               |
+| `row1`         | `#ffffff`  | 奇数帮助行底色               |
+| `row2`         | `#ffffff`  | 偶数帮助行底色               |
+| `itemBorder`   | `rgba(69, 55, 44, 0.1)`   | 帮助行边框颜色               |
+| `pagePad`      | `32px`                | 页面内边距                   |
+| `panelPad`     | `28px`                     | 面板内边距                   |
+| `panelRad`     | `24px`                     | 面板圆角                     |
+| `groupGap`     | `28px`                     | 分组之间的间距               |
 | `itemGap`      | `12px`                     | 帮助行之间的间距             |
 | `itemRad`      | `14px`                     | 帮助行圆角                   |
-| `itemPad`      | `14px 16px`                | 帮助行内边距                 |
-| `headGap`      | `38px`                     | 页面标题下方间距             |
-| `headPad`      | `20px`                     | 标题左侧内边距               |
-| `headBorder`   | `6px`                      | 标题左侧强调线宽度           |
-| `groupPad`     | `12px 16px`                | 分组标题栏内边距             |
-| `groupRad`     | `10px`                     | 分组标题栏圆角               |
-| `groupHeadGap` | `18px`                     | 分组标题与帮助行间距         |
+| `itemPad`      | `18px 20px`                | 帮助行内边距                 |
+| `headGap`      | `28px`                     | 页面标题下方间距             |
+| `headPad`      | `0px`                     | 标题左侧内边距               |
+| `headBorder`   | `0px`                      | 标题左侧强调线宽度           |
+| `groupPad`     | `0px`                | 分组标题栏内边距             |
+| `groupRad`     | `0px`                     | 分组标题栏圆角               |
+| `groupHeadGap` | `14px`                     | 分组标题与帮助行间距         |
 | `nameGap`      | `12px`                     | 小标题、横杠和说明之间的间距 |
-| `contentGap`   | `12px`                     | 帮助行标记点与文字之间的间距 |
-| `lineWidth`    | `58px`                     | 小标题后的横杠宽度           |
-| `markColor`    | `#3b82f6`                  | 帮助行标记点颜色             |
-| `markSize`     | `8px`                      | 帮助行标记点大小             |
-| `ringColor`    | `rgba(59, 130, 246, 0.2)`  | 标记点外环颜色               |
-| `ringSize`     | `4px`                      | 标记点外环大小               |
-| `footGap`      | `24px`                     | 页脚上方间距                 |
-| `footPad`      | `10px`                     | 页脚上方内边距               |
-| `footBorder`   | `rgba(15, 23, 42, 0.06)`   | 页脚分隔线颜色               |
+| `contentGap`   | `0px`                     | 帮助行标记点与文字之间的间距 |
+| `lineWidth`    | `0px`                     | 小标题后的横杠宽度           |
+| `markColor`    | `#edaa7d`                  | 帮助行标记点颜色             |
+| `markSize`     | `0px`                      | 帮助行标记点大小             |
+| `ringColor`    | `rgba(185, 88, 44, 0.22)`  | 标记点外环颜色               |
+| `ringSize`     | `0px`                      | 标记点外环大小               |
+| `footGap`      | `32px`                     | 页脚上方间距                 |
+| `footPad`      | `20px`                     | 页脚上方内边距               |
+| `footBorder`   | `rgba(69, 55, 44, 0.1)`   | 页脚分隔线颜色               |
 | `bgSize`       | `cover`                    | 背景图尺寸，如 `contain`     |
 | `bgPos`        | `center`                   | 背景图位置，如 `top left`    |
 
@@ -219,21 +219,23 @@ type HelpItem = {
 | `align`         | 见下表           | `left`、`center`、`right`、`justify` 或 `inherit` |
 | `weight`        | 见下表           | 字重，如 `400`、`700`、`bold`                     |
 | `shadow`        | `none`           | 文字阴影                                          |
-| `lineHeight`    | `1.2`            | 行高                                              |
+| `lineHeight`    | `1.5`            | 行高                                              |
 | `letterSpacing` | `0`              | 字间距                                            |
 | `opacity`       | `1`              | 透明度，范围 `0-1`                                |
 | `transform`     | `none`           | `uppercase`、`lowercase` 或 `capitalize`          |
 
+大标题默认使用暖白色，自定义 `theme.color` 或 `theme.styles.title.color` 可以覆盖。
+
 各区域默认值：
 
-| 区域     | `size`   | `align`   | `weight` | `transform` |
-| -------- | -------- | --------- | -------- | ----------- |
-| `menu`   | `0.82em` | `inherit` | `700`    | `uppercase` |
-| `title`  | `2.7em`  | `left`    | `800`    | `none`      |
-| `group`  | `1.05em` | `left`    | `800`    | `none`      |
-| `item`   | `1em`    | `left`    | `700`    | `none`      |
-| `desc`   | `0.8em`  | `left`    | `400`    | `none`      |
-| `footer` | `0.82em` | `center`  | `400`    | `none`      |
+| 区域     | `size`    | `align`   | `weight` | `transform` |
+| -------- | --------- | --------- | -------- | ----------- |
+| `menu`   | `0.82em`  | `inherit` | `700`    | `uppercase` |
+| `title`  | `3em`     | `left`    | `800`    | `none`      |
+| `group`  | `1.15em`  | `left`    | `800`    | `none`      |
+| `item`   | `1em`     | `left`    | `700`    | `none`      |
+| `desc`   | `0.875em` | `left`    | `400`    | `none`      |
+| `footer` | `0.82em`  | `center`  | `400`    | `none`      |
 
 ## 资源路径
 

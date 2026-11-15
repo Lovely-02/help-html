@@ -81,13 +81,13 @@
     --header-width: {{header-width}};
     --base-font-size: {{font-size}};
     --background-image: {{background-image}};
-    --global-font-family: "HelpCustomFont", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-    --menu-font-family: {{menu-font-family}};
-    --title-font-family: {{title-font-family}};
-    --group-font-family: {{group-font-family}};
-    --item-font-family: {{item-font-family}};
-    --desc-font-family: {{desc-font-family}};
-    --footer-font-family: {{footer-font-family}};
+    --global-font-family: "HelpCustomFont", "Inter", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    --menu-font-family: {{menu-font-family}}, var(--global-font-family);
+    --title-font-family: {{title-font-family}}, var(--global-font-family);
+    --group-font-family: {{group-font-family}}, var(--global-font-family);
+    --item-font-family: {{item-font-family}}, var(--global-font-family);
+    --desc-font-family: {{desc-font-family}}, var(--global-font-family);
+    --footer-font-family: {{footer-font-family}}, var(--global-font-family);
     --menu-color: {{menu-color}};
     --menu-size: {{menu-size}};
     --menu-align: {{menu-align}};
@@ -162,7 +162,6 @@ html {
 body {
     display: flex;
     width: 100%;
-    min-height: 100vh;
     flex-direction: column;
     margin: 0;
     padding: var(--page-padding);
@@ -198,7 +197,26 @@ body {
     flex-direction: column;
     align-items: var(--header-align);
     margin-bottom: var(--header-margin-bottom);
+    position: relative;
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--header-bg-color);
+    overflow: hidden;
+    isolation: isolate;
     text-align: var(--title-align);
+}
+
+.help-header::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    top: -100px;
+    border: 36px solid var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.2;
 }
 
 .help-header-content {
@@ -224,7 +242,7 @@ body {
 }
 
 .help-kicker {
-    margin: 0 0 8px;
+    margin: 0 0 14px;
     color: var(--menu-color);
     font-family: var(--menu-font-family);
     font-size: var(--menu-size);
@@ -248,11 +266,12 @@ body {
 .group-heading {
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
     gap: var(--group-name-gap);
     margin-bottom: var(--group-heading-margin-bottom);
     padding: var(--group-heading-padding);
     border-radius: var(--group-heading-radius);
-    background: var(--header-bg-color);
+    background: transparent;
     text-align: var(--group-align);
 }
 
@@ -284,9 +303,8 @@ body {
 
 .group-desc {
     min-width: 0;
-    flex: 0 1 auto;
-    max-width: 40%;
-    overflow: hidden;
+    flex: 1 1 160px;
+    max-width: 100%;
     color: var(--desc-color);
     font-family: var(--desc-font-family);
     font-size: var(--desc-size);
@@ -296,8 +314,7 @@ body {
     text-align: var(--desc-align);
     text-shadow: var(--desc-shadow);
     text-transform: var(--desc-transform);
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
     opacity: var(--desc-opacity);
 }
 
@@ -316,7 +333,7 @@ body {
 .help-item {
     display: flex;
     min-width: 0;
-    align-items: center;
+    align-items: baseline;
     gap: var(--item-content-gap);
     padding: var(--item-padding);
     border: 1px solid var(--item-border-color);
@@ -332,7 +349,7 @@ body {
     width: var(--marker-size);
     height: var(--marker-size);
     flex: 0 0 auto;
-    border-radius: 50%;
+    border-radius: 2px;
     background: var(--marker-color);
     box-shadow: 0 0 0 var(--marker-ring-size) var(--marker-ring-color);
 }
@@ -354,13 +371,12 @@ body {
     text-align: var(--item-align);
     text-shadow: var(--item-shadow);
     text-transform: var(--item-transform);
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
     opacity: var(--item-opacity);
 }
 
 .item-desc {
-    margin-top: 4px;
+    margin-top: 8px;
     overflow: hidden;
     color: var(--desc-color);
     font-family: var(--desc-font-family);
@@ -371,8 +387,7 @@ body {
     text-align: var(--desc-align);
     text-shadow: var(--desc-shadow);
     text-transform: var(--desc-transform);
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
     opacity: var(--desc-opacity);
 }
 
@@ -390,4 +405,33 @@ body {
     text-shadow: var(--footer-shadow);
     text-transform: var(--footer-transform);
     opacity: var(--footer-opacity);
+}
+
+/* Keep configured column counts on wide renders and readable cards on narrow ones. */
+@media (max-width: 640px) {
+    .help-list {
+        grid-template-columns: repeat(min({{columns}}, 2), minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 420px) {
+    body {
+        padding: 16px;
+    }
+
+    .help-container {
+        padding: 22px;
+    }
+
+    .help-header {
+        padding: 24px;
+    }
+
+    .help-title {
+        font-size: min(var(--title-size), 2.5em);
+    }
+
+    .help-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
